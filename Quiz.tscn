@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://QuestionBox.gd" type="Script" id=2]
 [ext_resource path="res://background-1.png" type="Texture" id=3]
@@ -20,11 +20,14 @@ size = 26
 font_data = ExtResource( 4 )
 
 [sub_resource type="StyleBoxFlat" id=8]
-bg_color = Color( 0, 0, 0, 1 )
+bg_color = Color( 0.25098, 0.188235, 0.188235, 1 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 26
 font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.25098, 0.188235, 0.188235, 1 )
 
 [sub_resource type="GDScript" id=4]
 script/source = "extends Button
@@ -48,8 +51,11 @@ func _ready():
 
 "
 
-[sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0.113725, 0.827451, 0.117647, 1 )
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.25098, 0.188235, 0.188235, 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.25098, 0.188235, 0.188235, 1 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -104,8 +110,12 @@ margin_top = 275.0
 margin_right = -5.0
 margin_bottom = 355.0
 custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 9 )
 text = "Dijkstra"
 script = SubResource( 4 )
+
+[node name="Farbaenderung" type="Timer" parent="Control/QuestionBox"]
+wait_time = 3.0
 
 [node name="QuestionBox2" type="Control" parent="Control"]
 margin_left = 253.0
@@ -146,7 +156,7 @@ margin_right = 495.0
 margin_bottom = 355.0
 theme = SubResource( 6 )
 custom_fonts/font = SubResource( 2 )
-custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 10 )
 text = "Floyd-Warshall"
 
 [node name="Dijkstra" type="Button" parent="Control/QuestionBox2"]
@@ -155,12 +165,17 @@ margin_top = 275.0
 margin_right = -5.0
 margin_bottom = 355.0
 custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 11 )
 text = "Dijkstra"
 script = SubResource( 4 )
+
+[node name="Farbaenderung" type="Timer" parent="Control/QuestionBox2"]
 
 [connection signal="tween_completed" from="Control/QuestionBox/Tween" to="Control/QuestionBox" method="_on_Tween_tween_completed"]
 [connection signal="pressed" from="Control/QuestionBox/FloydWarshall" to="Control/QuestionBox" method="_on_FloydWarshall_pressed"]
 [connection signal="pressed" from="Control/QuestionBox/Dijkstra" to="Control/QuestionBox" method="_on_Dijkstra_pressed"]
+[connection signal="timeout" from="Control/QuestionBox/Farbaenderung" to="Control/QuestionBox" method="_on_Farbaenderung_timeout"]
 [connection signal="tween_completed" from="Control/QuestionBox2/Tween" to="Control/QuestionBox2" method="_on_Tween_tween_completed"]
 [connection signal="pressed" from="Control/QuestionBox2/FloydWarshall" to="Control/QuestionBox2" method="_on_FloydWarshall_pressed"]
 [connection signal="pressed" from="Control/QuestionBox2/Dijkstra" to="Control/QuestionBox2" method="_on_Dijkstra_pressed"]
+[connection signal="timeout" from="Control/QuestionBox2/Farbaenderung" to="Control/QuestionBox2" method="_on_Farbaenderung_timeout"]
