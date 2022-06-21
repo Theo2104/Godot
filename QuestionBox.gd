@@ -85,7 +85,6 @@ func _on_FloydWarshall_pressed():
 		$FloydWarshall.add_stylebox_override("hover",new_style_box)
 		#button red
 	
-	 # Replace with function body.
 
 
 func _on_Farbaenderung_timeout():
@@ -95,4 +94,3 @@ func _on_Farbaenderung_timeout():
 	$FloydWarshall.add_stylebox_override("hover",new_style_box)
 	$Dijkstra.add_stylebox_override("normal",new_style_box)
 	$Dijkstra.add_stylebox_override("hover",new_style_box)
-	 # Replace with function body.
