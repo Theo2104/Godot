@@ -98,6 +98,7 @@ custom_fonts/normal_font = SubResource( 3 )
 [node name="Tween" type="Tween" parent="Control/QuestionBox2"]
 
 [node name="FloydWarshall" type="Button" parent="Control/QuestionBox2"]
+visible = false
 margin_left = 195.0
 margin_top = 275.0
 margin_right = 495.0
@@ -108,6 +109,7 @@ custom_styles/normal = SubResource( 10 )
 text = "Floyd-Warshall"
 
 [node name="Dijkstra" type="Button" parent="Control/QuestionBox2"]
+visible = false
 margin_left = -305.0
 margin_top = 275.0
 margin_right = -5.0
@@ -150,19 +152,19 @@ custom_fonts/normal_font = SubResource( 3 )
 [node name="Tween" type="Tween" parent="Control/QuestionBox"]
 
 [node name="FloydWarshall" type="Button" parent="Control/QuestionBox"]
-margin_left = 195.0
-margin_top = 275.0
-margin_right = 495.0
-margin_bottom = 355.0
+margin_left = 300.0
+margin_top = -64.0
+margin_right = 600.0
+margin_bottom = 16.0
+rect_rotation = 180.0
 theme = SubResource( 6 )
 custom_fonts/font = SubResource( 2 )
 custom_styles/normal = SubResource( 8 )
 text = "Floyd-Warshall"
 
 [node name="Dijkstra" type="Button" parent="Control/QuestionBox"]
-margin_left = -305.0
 margin_top = 275.0
-margin_right = -5.0
+margin_right = 300.0
 margin_bottom = 355.0
 custom_fonts/font = SubResource( 1 )
 custom_styles/normal = SubResource( 9 )
@@ -173,10 +175,10 @@ script = SubResource( 4 )
 wait_time = 3.0
 
 [connection signal="tween_completed" from="Control/QuestionBox2/Tween" to="Control/QuestionBox2" method="_on_Tween_tween_completed"]
-[connection signal="pressed" from="Control/QuestionBox2/FloydWarshall" to="Control/QuestionBox2" method="_on_FloydWarshall_pressed"]
-[connection signal="pressed" from="Control/QuestionBox2/Dijkstra" to="Control/QuestionBox2" method="_on_Dijkstra_pressed"]
 [connection signal="timeout" from="Control/QuestionBox2/Farbaenderung" to="Control/QuestionBox2" method="_on_Farbaenderung_timeout"]
 [connection signal="tween_completed" from="Control/QuestionBox/Tween" to="Control/QuestionBox" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="Control/QuestionBox/FloydWarshall" to="Control/QuestionBox2" method="_on_FloydWarshall_pressed"]
 [connection signal="pressed" from="Control/QuestionBox/FloydWarshall" to="Control/QuestionBox" method="_on_FloydWarshall_pressed"]
+[connection signal="pressed" from="Control/QuestionBox/Dijkstra" to="Control/QuestionBox2" method="_on_Dijkstra_pressed"]
 [connection signal="pressed" from="Control/QuestionBox/Dijkstra" to="Control/QuestionBox" method="_on_Dijkstra_pressed"]
 [connection signal="timeout" from="Control/QuestionBox/Farbaenderung" to="Control/QuestionBox" method="_on_Farbaenderung_timeout"]
