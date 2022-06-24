@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Knoten.png-922b82d5ff434b270062b7631e87ae17.stex"
+path="res://.import/Knoten.png-ce724a8b48cc93ed31369300414920a7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Knoten.png"
-dest_files=[ "res://.import/Knoten.png-922b82d5ff434b270062b7631e87ae17.stex" ]
+source_file="res://mapTest/Knoten.png"
+dest_files=[ "res://.import/Knoten.png-ce724a8b48cc93ed31369300414920a7.stex" ]
 
 [params]
 
