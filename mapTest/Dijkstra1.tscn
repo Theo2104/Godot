@@ -1,0 +1,649 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Dijkstra1.gd" type="Script" id=1]
+[ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Knoten_disabled.png" type="Texture" id=3]
+[ext_resource path="res://Knoten.png" type="Texture" id=4]
+[ext_resource path="res://weg_selected.png" type="Texture" id=5]
+[ext_resource path="res://weg_disabled.png" type="Texture" id=6]
+[ext_resource path="res://Karte_DijkstraNeu.png" type="Texture" id=7]
+[ext_resource path="res://weg.png" type="Texture" id=8]
+[ext_resource path="res://Knoten_selected.png" type="Texture" id=9]
+[ext_resource path="res://ship.png" type="Texture" id=10]
+[ext_resource path="res://339517__pulswelle__waves-at-baltic-sea-shore.wav" type="AudioStream" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 71
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "float"
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "swim"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 3, 4 ]
+}
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 10, 8 )
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 951.111, 534 )
+texture = ExtResource( 7 )
+
+[node name="AB" type="TextureButton" parent="."]
+margin_left = 129.0
+margin_top = 588.0
+margin_right = 819.0
+margin_bottom = 615.0
+rect_rotation = -45.0
+rect_scale = Vector2( 0.9, 0.9 )
+toggle_mode = true
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+
+[node name="BE" type="TextureButton" parent="."]
+margin_left = 645.0
+margin_top = 128.0
+margin_right = 1335.0
+margin_bottom = 155.0
+rect_scale = Vector2( 1, 0.9 )
+toggle_mode = true
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+
+[node name="AC" type="TextureButton" parent="."]
+margin_left = 201.0
+margin_top = 566.0
+margin_right = 891.0
+margin_bottom = 593.0
+rect_scale = Vector2( 1, 0.9 )
+toggle_mode = true
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+
+[node name="CE" type="TextureButton" parent="."]
+margin_left = 916.0
+margin_top = 543.0
+margin_right = 1606.0
+margin_bottom = 570.0
+rect_rotation = -45.0
+rect_scale = Vector2( 0.8, 0.9 )
+toggle_mode = true
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+
+[node name="BC" type="TextureButton" parent="."]
+margin_left = 916.0
+margin_top = 594.0
+margin_right = 1606.0
+margin_bottom = 621.0
+rect_rotation = 233.5
+rect_scale = Vector2( 0.8, 0.9 )
+toggle_mode = true
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+
+[node name="AD" type="TextureButton" parent="."]
+margin_left = 190.0
+margin_top = 602.0
+margin_right = 880.0
+margin_bottom = 629.0
+rect_rotation = 24.8
+rect_scale = Vector2( 1.1, 0.9 )
+toggle_mode = true
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+
+[node name="CF" type="TextureButton" parent="."]
+margin_left = 954.0
+margin_top = 567.0
+margin_right = 1644.0
+margin_bottom = 594.0
+rect_scale = Vector2( 1.1, 0.9 )
+toggle_mode = true
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+
+[node name="DF" type="TextureButton" parent="."]
+margin_left = 941.0
+margin_top = 931.0
+margin_right = 1631.0
+margin_bottom = 958.0
+rect_rotation = -24.0
+rect_scale = Vector2( 1.2, 0.9 )
+toggle_mode = true
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+
+[node name="EF" type="TextureButton" parent="."]
+margin_left = 1355.0
+margin_top = 163.0
+margin_right = 2045.0
+margin_bottom = 190.0
+rect_rotation = 45.0
+rect_scale = Vector2( 0.8, 0.9 )
+toggle_mode = true
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+
+[node name="A" type="Position2D" parent="."]
+position = Vector2( 153, 581 )
+
+[node name="B" type="Position2D" parent="."]
+position = Vector2( 604, 139 )
+
+[node name="C" type="Position2D" parent="."]
+position = Vector2( 916, 579 )
+
+[node name="D" type="Position2D" parent="."]
+position = Vector2( 912, 947 )
+
+[node name="E" type="Position2D" parent="."]
+position = Vector2( 1318, 139 )
+
+[node name="F" type="Position2D" parent="."]
+position = Vector2( 1735, 579 )
+
+[node name="ButtonA" type="TextureButton" parent="."]
+margin_left = 73.0
+margin_top = 560.0
+margin_right = 187.0
+margin_bottom = 674.0
+rect_rotation = -30.0
+toggle_mode = true
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="ButtonA"]
+margin_left = 37.8468
+margin_top = -3.55243
+margin_right = 97.8469
+margin_bottom = 87.4476
+rect_rotation = 30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "A"
+
+[node name="Label2" type="Label" parent="ButtonA"]
+margin_left = 78.5625
+margin_top = 119.259
+margin_right = 138.563
+margin_bottom = 210.259
+rect_rotation = 210.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "A"
+
+[node name="ButtonB" type="TextureButton" parent="."]
+margin_left = 523.0
+margin_top = 121.0
+margin_right = 637.0
+margin_bottom = 235.0
+rect_rotation = -30.0
+toggle_mode = true
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="ButtonB"]
+margin_left = 75.3746
+margin_top = 18.1143
+margin_right = 135.375
+margin_bottom = 109.114
+rect_rotation = 30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "B"
+
+[node name="Label2" type="Label" parent="ButtonB"]
+margin_left = 38.5142
+margin_top = 97.2917
+margin_right = 98.5143
+margin_bottom = 188.292
+rect_rotation = 210.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "B"
+
+[node name="ButtonC" type="TextureButton" parent="."]
+margin_left = 833.0
+margin_top = 558.0
+margin_right = 947.0
+margin_bottom = 672.0
+rect_rotation = -30.0
+toggle_mode = true
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="ButtonC"]
+margin_left = 75.9519
+margin_top = 18.4474
+margin_right = 135.952
+margin_bottom = 109.447
+rect_rotation = 30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "C"
+
+[node name="Label2" type="Label" parent="ButtonC"]
+margin_left = 38.5142
+margin_top = 97.2917
+margin_right = 98.5143
+margin_bottom = 188.292
+rect_rotation = 210.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "C"
+
+[node name="ButtonD" type="TextureButton" parent="."]
+margin_left = 838.0
+margin_top = 920.0
+margin_right = 952.0
+margin_bottom = 1034.0
+rect_rotation = -30.0
+toggle_mode = true
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="ButtonD"]
+margin_left = 76.2408
+margin_top = 18.6142
+margin_right = 136.241
+margin_bottom = 109.614
+rect_rotation = 30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "D"
+
+[node name="Label2" type="Label" parent="ButtonD"]
+margin_left = 38.5142
+margin_top = 97.2917
+margin_right = 98.5143
+margin_bottom = 188.292
+rect_rotation = 210.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "D"
+
+[node name="ButtonE" type="TextureButton" parent="."]
+margin_left = 1242.0
+margin_top = 121.0
+margin_right = 1356.0
+margin_bottom = 235.0
+rect_rotation = -30.0
+toggle_mode = true
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="ButtonE"]
+margin_left = 76.0084
+margin_top = 15.0162
+margin_right = 136.009
+margin_bottom = 106.016
+rect_rotation = 30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "E"
+
+[node name="Label2" type="Label" parent="ButtonE"]
+margin_left = 39.1482
+margin_top = 94.1937
+margin_right = 99.1483
+margin_bottom = 185.194
+rect_rotation = 210.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "E"
+
+[node name="ButtonF" type="TextureButton" parent="."]
+margin_left = 1660.0
+margin_top = 560.0
+margin_right = 1774.0
+margin_bottom = 674.0
+rect_rotation = -30.0
+toggle_mode = true
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="ButtonF"]
+margin_left = 76.7411
+margin_top = 17.7482
+margin_right = 136.741
+margin_bottom = 108.748
+rect_rotation = 30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "F"
+
+[node name="Label2" type="Label" parent="ButtonF"]
+margin_left = 39.8801
+margin_top = 96.9258
+margin_right = 99.8802
+margin_bottom = 187.926
+rect_rotation = 210.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "F"
+
+[node name="LabelAB" type="Label" parent="."]
+margin_left = 329.0
+margin_top = 295.0
+margin_right = 400.0
+margin_bottom = 386.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "4|"
+
+[node name="LabelAB2" type="Label" parent="."]
+margin_left = 450.0
+margin_top = 382.0
+margin_right = 544.0
+margin_bottom = 473.0
+rect_rotation = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "4|"
+
+[node name="Confirm" type="Button" parent="."]
+margin_left = 18.0
+margin_top = 871.0
+margin_right = 436.0
+margin_bottom = 950.0
+custom_fonts/font = SubResource( 2 )
+toggle_mode = true
+
+[node name="Label" type="Label" parent="Confirm"]
+margin_left = 15.0
+margin_top = 16.0
+margin_right = 213.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( 217, 39 )
+custom_fonts/font = SubResource( 3 )
+text = "Bestätigen |"
+
+[node name="Label2" type="Label" parent="Confirm"]
+margin_left = 61.0
+margin_top = 48.0001
+margin_right = 259.0
+margin_bottom = 87.0001
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 171, 6.99994 )
+custom_fonts/font = SubResource( 3 )
+text = "Bestätigen |"
+
+[node name="Delete" type="Button" parent="."]
+margin_left = 17.0
+margin_top = 960.0
+margin_right = 623.0
+margin_bottom = 1039.0
+custom_fonts/font = SubResource( 2 )
+
+[node name="Label" type="Label" parent="Delete"]
+margin_left = 15.0
+margin_top = 18.0
+margin_right = 306.0
+margin_bottom = 57.0
+rect_pivot_offset = Vector2( 217, 39 )
+custom_fonts/font = SubResource( 3 )
+text = "Eingabe löschen |"
+
+[node name="Label2" type="Label" parent="Delete"]
+margin_left = 247.0
+margin_top = 49.0
+margin_right = 538.0
+margin_bottom = 88.0
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 171, 6.99994 )
+custom_fonts/font = SubResource( 3 )
+text = "Eingabe löschen |"
+
+[node name="LabelDF" type="Label" parent="."]
+margin_left = 1249.0
+margin_top = 730.0
+margin_right = 1320.0
+margin_bottom = 821.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "3|"
+
+[node name="LabelDF2" type="Label" parent="."]
+margin_left = 1370.0
+margin_top = 817.0
+margin_right = 1464.0
+margin_bottom = 908.0
+rect_rotation = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "3|"
+
+[node name="LabelEF" type="Label" parent="."]
+margin_left = 1481.0
+margin_top = 313.0
+margin_right = 1552.0
+margin_bottom = 404.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "9|"
+
+[node name="LabelEF2" type="Label" parent="."]
+margin_left = 1602.0
+margin_top = 400.0
+margin_right = 1696.0
+margin_bottom = 491.0
+rect_rotation = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "9|"
+
+[node name="LabelCF" type="Label" parent="."]
+margin_left = 1273.0
+margin_top = 536.0
+margin_right = 1344.0
+margin_bottom = 627.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "7|"
+
+[node name="LabelCF2" type="Label" parent="."]
+margin_left = 1394.0
+margin_top = 623.0
+margin_right = 1488.0
+margin_bottom = 714.0
+rect_rotation = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "7|"
+
+[node name="LabelCE" type="Label" parent="."]
+margin_left = 1068.0
+margin_top = 304.0
+margin_right = 1139.0
+margin_bottom = 395.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "5|"
+
+[node name="LabelCE2" type="Label" parent="."]
+margin_left = 1189.0
+margin_top = 391.0
+margin_right = 1283.0
+margin_bottom = 482.0
+rect_rotation = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "5|"
+
+[node name="LabelBE" type="Label" parent="."]
+margin_left = 891.0
+margin_top = 96.0
+margin_right = 962.0
+margin_bottom = 187.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "2|"
+
+[node name="LabelBE2" type="Label" parent="."]
+margin_left = 1012.0
+margin_top = 183.0
+margin_right = 1106.0
+margin_bottom = 274.0
+rect_rotation = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "2|"
+
+[node name="LabelBC" type="Label" parent="."]
+margin_left = 687.0
+margin_top = 313.0
+margin_right = 758.0
+margin_bottom = 404.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "3|"
+
+[node name="LabelBC2" type="Label" parent="."]
+margin_left = 808.0
+margin_top = 400.0
+margin_right = 902.0
+margin_bottom = 491.0
+rect_rotation = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "3|"
+
+[node name="LabelAC" type="Label" parent="."]
+margin_left = 468.0
+margin_top = 535.0
+margin_right = 539.0
+margin_bottom = 626.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "8|"
+
+[node name="LabelAC2" type="Label" parent="."]
+margin_left = 589.0
+margin_top = 622.0
+margin_right = 683.0
+margin_bottom = 713.0
+rect_rotation = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "8|"
+
+[node name="LabelAD" type="Label" parent="."]
+margin_left = 417.0
+margin_top = 731.0
+margin_right = 538.0
+margin_bottom = 822.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "10|"
+
+[node name="LabelAD2" type="Label" parent="."]
+margin_left = 638.0
+margin_top = 818.0
+margin_right = 759.0
+margin_bottom = 909.0
+rect_rotation = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "10|"
+
+[node name="Ship" type="KinematicBody2D" parent="."]
+position = Vector2( 153, 581 )
+scale = Vector2( 1.66667, 1.66667 )
+
+[node name="Image" type="Sprite" parent="Ship"]
+position = Vector2( -1.19998, -15 )
+scale = Vector2( 0.227309, 0.188076 )
+texture = ExtResource( 10 )
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ship"]
+anims/RESET = SubResource( 4 )
+anims/float = SubResource( 5 )
+anims/swim = SubResource( 6 )
+
+[node name="BackgroundM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+autoplay = true
+
+[connection signal="pressed" from="AB" to="." method="_on_AB_pressed"]
+[connection signal="pressed" from="BE" to="." method="_on_BE_pressed"]
+[connection signal="pressed" from="AC" to="." method="_on_AC_pressed"]
+[connection signal="pressed" from="CE" to="." method="_on_CE_pressed"]
+[connection signal="pressed" from="BC" to="." method="_on_BC_pressed"]
+[connection signal="pressed" from="AD" to="." method="_on_AD_pressed"]
+[connection signal="pressed" from="CF" to="." method="_on_CF_pressed"]
+[connection signal="pressed" from="DF" to="." method="_on_DF_pressed"]
+[connection signal="pressed" from="EF" to="." method="_on_EF_pressed"]
+[connection signal="pressed" from="Confirm" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Delete" to="." method="_on_Delete_pressed"]
