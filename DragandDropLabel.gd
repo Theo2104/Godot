@@ -11,7 +11,7 @@ func get_right_pos():
 func _ready():
 	print(get_node("Icon"))
 	rest_nodes = get_tree().get_nodes_in_group("zone")
-	rest_point = rest_nodes[0].global_position
+	#rest_point = rest_nodes[0].global_position
 	#rest_nodes[0].select()
 	
 func _on_Area2D_input_event(viewport, event, shape_idx):

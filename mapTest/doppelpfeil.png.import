@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/doppelpfeil.png-515ee9ceb45f0a9f49252bca042ccf14.stex"
+path="res://.import/doppelpfeil.png-d283ace3fb7b8c21a280f4a21ffe880b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://doppelpfeil.png"
-dest_files=[ "res://.import/doppelpfeil.png-515ee9ceb45f0a9f49252bca042ccf14.stex" ]
+source_file="res://mapTest/doppelpfeil.png"
+dest_files=[ "res://.import/doppelpfeil.png-d283ace3fb7b8c21a280f4a21ffe880b.stex" ]
 
 [params]
 

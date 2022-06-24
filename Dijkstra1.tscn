@@ -10,7 +10,7 @@
 [ext_resource path="res://weg.png" type="Texture" id=8]
 [ext_resource path="res://Knoten_selected.png" type="Texture" id=9]
 [ext_resource path="res://ship.png" type="Texture" id=10]
-[ext_resource path="res://339517__pulswelle__waves-at-baltic-sea-shore.wav" type="AudioStream" id=11]
+[ext_resource path="res://drag_and_drop_demo_initial.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 71
@@ -633,8 +633,12 @@ anims/float = SubResource( 5 )
 anims/swim = SubResource( 6 )
 
 [node name="BackgroundM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 11 )
 autoplay = true
+
+[node name="DragAndDropDemo" parent="." instance=ExtResource( 11 )]
+visible = false
+margin_right = 1699.0
+margin_bottom = 995.0
 
 [connection signal="pressed" from="AB" to="." method="_on_AB_pressed"]
 [connection signal="pressed" from="BE" to="." method="_on_BE_pressed"]

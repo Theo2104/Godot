@@ -21,7 +21,7 @@ func _on_Button_pressed():
 	else: 
 		return false
 	#debugging print
-	print(get_node("../VLayout/DragAndDropColumns6/TargetContainer/dropzone6"))
+	
 
 #export (NodePath) var dropdown_path
 	
@@ -31,6 +31,7 @@ onready var dropdown3 = $VLayout/DragAndDropColumns3/SrcTargetDivider/DropDown3
 onready var dropdown4 = $VLayout/DragAndDropColumns4/SrcTargetDivider/DropDown4
 onready var dropdown5 = $VLayout/DragAndDropColumns5/SrcTargetDivider/DropDown5
 onready var dropdown6 = $VLayout/DragAndDropColumns6/SrcTargetDivider/DropDown6
+
 
 var true_state = false
 var true_state2 = false
