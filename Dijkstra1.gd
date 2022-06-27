@@ -4,6 +4,7 @@ export var moving = false
 
 onready var pathArray = [$Ship.global_position]
 onready var speed = [200]
+var table_visibility = false
 
 #moves ship to destination position
 func go_there(delta):
@@ -19,7 +20,7 @@ func go_there(delta):
 		moving=false
 		
 func _process(delta):
-	print("Knoten: ", pathArray, ", speed: ", speed)
+	#print("Knoten: ", pathArray, ", speed: ", speed)
 	go_there(delta)
 	set_animation()
 	
@@ -161,4 +162,15 @@ func _on_Delete_pressed():
 		pathArray.clear()
 		speed.clear()
 		setPressedToFalse()
+	
+
+
+func _on_TableButton_pressed():
+	if(table_visibility):
+		table_visibility = false
+		$DragAndDropDemo.visible = false
+	else:
+		table_visibility = true
+		$DragAndDropDemo.visible = true
+	
 	
