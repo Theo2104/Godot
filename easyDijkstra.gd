@@ -78,20 +78,14 @@ func checkPath(Y,X):
 			
 func setPressedToFalse():
 	$AB.set_pressed(false)
-	$BE.set_pressed(false)
 	$AC.set_pressed(false)
-	$CE.set_pressed(false)
 	$BC.set_pressed(false)
-	$AD.set_pressed(false)
-	$CF.set_pressed(false)
-	$DF.set_pressed(false)
-	$EF.set_pressed(false)
+	$BD.set_pressed(false)
+	$CD.set_pressed(false)
 	$ButtonA.set_pressed(false)
 	$ButtonB.set_pressed(false)
 	$ButtonC.set_pressed(false)
 	$ButtonD.set_pressed(false)
-	$ButtonE.set_pressed(false)
-	$ButtonF.set_pressed(false)
 	
 func deselectSpecificPath(Y,X):
 	if Y == $A.global_position || X == $A.global_position:
@@ -99,24 +93,14 @@ func deselectSpecificPath(Y,X):
 			$AB.set_pressed(false)
 		elif X == $C.global_position || Y == $C.global_position:
 			$AC.set_pressed(false)
-		elif X == $D.global_position || Y == $C.global_position:
-			$AD.set_pressed(false)
 	
-	elif Y == $C.global_position || X == $C.global_position:
-		if X == $E.global_position || Y == $E.global_position:
-			$CE.set_pressed(false)
-		elif X == $B.global_position || Y == $B.global_position:
+	elif Y == $B.global_position || X == $B.global_position:
+		if X == $C.global_position || Y == $C.global_position:
 			$BC.set_pressed(false)
-		elif X == $F.global_position || Y == $F.global_position:
-			$CF.set_pressed(false)
-			
-	elif Y == $F.global_position || X == $F.global_position:
-		if X == $D.global_position || Y == $D.global_position:
-			$DF.set_pressed(false)
-		elif X == $E.global_position || Y == $E.global_position:
-			$EF.set_pressed(false)
+		elif X == $D.global_position || Y == $D.global_position:
+			$BD.set_pressed(false)
 	else: 
-		$BE.set_pressed(false)
+		$CD.set_pressed(false)
 	
 	
 func checkDoublePath(path, Y, X, s):
@@ -127,44 +111,32 @@ func checkDoublePath(path, Y, X, s):
 		pathArray.pop_back()
 	else:
 		path.set_pressed(true)
-		
-#methods to change testination position (and move there - go_there() in process method), set moving to true, set move_speed
-func _on_AB_pressed():
-	checkDoublePath($AB, $A.global_position, $B.global_position, (11-4)*9*8)
 
-func _on_BE_pressed():
-	checkDoublePath($BE, $B.global_position, $E.global_position, (11-2)*10*8)
-
-func _on_AC_pressed():
-	checkDoublePath($AC, $A.global_position, $C.global_position, (11-8)*10*8)
-
-func _on_CE_pressed():
-	checkDoublePath($CE, $C.global_position, $E.global_position, (11-5)*8*8)
-
-func _on_BC_pressed():
-	checkDoublePath($BC, $B.global_position, $C.global_position, (11-3)*8*8)
-
-func _on_AD_pressed():
-	checkDoublePath($AD, $A.global_position, $D.global_position, (11-10)*11*8)
-
-func _on_CF_pressed():
-	checkDoublePath($CF, $C.global_position, $F.global_position, (11-7)*11*8)
-
-func _on_DF_pressed():
-	checkDoublePath($DF, $D.global_position, $F.global_position, (11-3)*12*8)
-
-func _on_EF_pressed():
-	checkDoublePath($EF, $E.global_position, $F.global_position, (11-9)*8*8)
-
-func _on_Button_pressed():
-	if !pathArray.empty():
-		moving = true
-	
 func _on_Delete_pressed():
 	if !moving:
-		pathArray.clear()
-		speed.clear()
-		setPressedToFalse()
+			pathArray.clear()
+			speed.clear()
+			setPressedToFalse()
+
+func _on_Confirm_pressed():
+	if !pathArray.empty():
+		moving = true
+
+func _on_AC_pressed():
+	checkDoublePath($AC, $A.global_position, $C.global_position, (11-5)*11*8)
+
+func _on_BC_pressed():
+	checkDoublePath($BC, $B.global_position, $C.global_position, (11-7)*11*8)
+
+func _on_BD_pressed():
+	checkDoublePath($BD, $B.global_position, $D.global_position, (11-5)*11*8)
+
+func _on_CD_pressed():
+	checkDoublePath($CD, $C.global_position, $D.global_position, (11-3)*11*8)
+
+func _on_AB_pressed():
+	checkDoublePath($AB, $A.global_position, $B.global_position, (11-4)*11*8)
+
 
 func _on_TableButton_pressed():
 	if(table_visibility):
@@ -173,5 +145,3 @@ func _on_TableButton_pressed():
 	else:
 		table_visibility = true
 		$DragAndDropDemo.visible = true
-	
-	

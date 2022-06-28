@@ -1,0 +1,465 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://weg_selected.png" type="Texture" id=2]
+[ext_resource path="res://Knoten.png" type="Texture" id=3]
+[ext_resource path="res://Knoten_selected.png" type="Texture" id=4]
+[ext_resource path="res://weg.png" type="Texture" id=5]
+[ext_resource path="res://easyDijkstramap.jpeg" type="Texture" id=6]
+[ext_resource path="res://easyDijkstra.gd" type="Script" id=7]
+[ext_resource path="res://ship.png" type="Texture" id=8]
+[ext_resource path="res://drag_and_drop_demo_initial.tscn" type="PackedScene" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 90
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "float"
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "swim"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 3, 4 ]
+}
+
+[sub_resource type="DynamicFont" id=6]
+size = 60
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFontData" id=8]
+font_path = "res://Xolonium-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=9]
+size = 30
+font_data = SubResource( 8 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="EasyDijkstramap" type="Sprite" parent="."]
+position = Vector2( 968, 543 )
+scale = Vector2( 1.21, 1.21111 )
+texture = ExtResource( 6 )
+
+[node name="AC" type="TextureButton" parent="."]
+margin_left = 312.0
+margin_top = 520.0
+margin_right = 1002.0
+margin_bottom = 547.0
+rect_rotation = 30.0
+rect_scale = Vector2( 1.1, 1 )
+toggle_mode = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 2 )
+
+[node name="BC" type="TextureButton" parent="."]
+margin_left = 1016.0
+margin_top = 168.0
+margin_right = 1706.0
+margin_bottom = 195.0
+rect_rotation = 91.0
+rect_scale = Vector2( 1.1, 1 )
+toggle_mode = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 2 )
+
+[node name="BD" type="TextureButton" parent="."]
+margin_left = 1008.0
+margin_top = 152.0
+margin_right = 1698.0
+margin_bottom = 179.0
+rect_rotation = 30.0
+rect_scale = Vector2( 1.1, 1 )
+toggle_mode = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 2 )
+
+[node name="CD" type="TextureButton" parent="."]
+margin_left = 992.0
+margin_top = 896.0
+margin_right = 1682.0
+margin_bottom = 923.0
+rect_rotation = -29.0
+rect_scale = Vector2( 1.1, 1 )
+toggle_mode = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 2 )
+
+[node name="AB" type="TextureButton" parent="."]
+margin_left = 304.0
+margin_top = 504.0
+margin_right = 994.0
+margin_bottom = 531.0
+rect_rotation = -27.0
+rect_scale = Vector2( 1.1, 1 )
+toggle_mode = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 2 )
+
+[node name="ButtonA" type="TextureButton" parent="."]
+margin_left = 248.0
+margin_top = 480.0
+margin_right = 362.0
+margin_bottom = 594.0
+rect_scale = Vector2( 0.7, 0.7 )
+toggle_mode = true
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="ButtonA"]
+margin_top = 2.28577
+margin_right = 72.0
+margin_bottom = 111.286
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "A"
+
+[node name="Label2" type="Label" parent="ButtonA"]
+margin_left = 125.714
+margin_top = 109.0
+margin_right = 197.714
+margin_bottom = 218.0
+rect_rotation = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "A"
+
+[node name="ButtonB" type="TextureButton" parent="."]
+margin_left = 968.0
+margin_top = 128.0
+margin_right = 1082.0
+margin_bottom = 242.0
+rect_scale = Vector2( 0.7, 0.7 )
+toggle_mode = true
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="ButtonB"]
+margin_left = 49.1427
+margin_top = -4.57764e-05
+margin_right = 121.143
+margin_bottom = 109.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "B"
+
+[node name="Label2" type="Label" parent="ButtonB"]
+margin_left = 60.5713
+margin_top = 109.0
+margin_right = 132.571
+margin_bottom = 218.0
+rect_rotation = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "B"
+
+[node name="ButtonC" type="TextureButton" parent="."]
+margin_left = 944.0
+margin_top = 880.0
+margin_right = 1058.0
+margin_bottom = 994.0
+rect_scale = Vector2( 0.7, 0.7 )
+toggle_mode = true
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="ButtonC"]
+margin_left = 49.1427
+margin_top = -4.57764e-05
+margin_right = 121.143
+margin_bottom = 109.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "C"
+
+[node name="Label2" type="Label" parent="ButtonC"]
+margin_left = 60.5713
+margin_top = 109.0
+margin_right = 132.571
+margin_bottom = 218.0
+rect_rotation = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "C"
+
+[node name="ButtonD" type="TextureButton" parent="."]
+margin_left = 1608.0
+margin_top = 504.0
+margin_right = 1722.0
+margin_bottom = 618.0
+rect_scale = Vector2( 0.7, 0.7 )
+toggle_mode = true
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="ButtonD"]
+margin_left = 49.1427
+margin_top = -4.57764e-05
+margin_right = 121.143
+margin_bottom = 109.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "D"
+
+[node name="Label2" type="Label" parent="ButtonD"]
+margin_left = 60.5713
+margin_top = 109.0
+margin_right = 132.571
+margin_bottom = 218.0
+rect_rotation = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "D"
+
+[node name="LabelCD" type="Label" parent="."]
+margin_left = 1292.0
+margin_top = 682.0
+margin_right = 1363.0
+margin_bottom = 773.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "3|"
+
+[node name="LabelCD2" type="Label" parent="."]
+margin_left = 1395.0
+margin_top = 755.0
+margin_right = 1489.0
+margin_bottom = 846.0
+rect_rotation = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "3|"
+
+[node name="LabelBD" type="Label" parent="."]
+margin_left = 1276.0
+margin_top = 313.0
+margin_right = 1347.0
+margin_bottom = 404.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "5|"
+
+[node name="LabelBD2" type="Label" parent="."]
+margin_left = 1379.0
+margin_top = 386.0
+margin_right = 1473.0
+margin_bottom = 477.0
+rect_rotation = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "5|"
+
+[node name="LabelBC" type="Label" parent="."]
+margin_left = 945.0
+margin_top = 488.0
+margin_right = 1016.0
+margin_bottom = 579.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "7|"
+
+[node name="LabelBC2" type="Label" parent="."]
+margin_left = 1048.0
+margin_top = 561.0
+margin_right = 1142.0
+margin_bottom = 652.0
+rect_rotation = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "7|"
+
+[node name="LabelAB" type="Label" parent="."]
+margin_left = 607.0
+margin_top = 299.0
+margin_right = 678.0
+margin_bottom = 390.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "4|"
+
+[node name="LabelAB2" type="Label" parent="."]
+margin_left = 710.0
+margin_top = 372.0
+margin_right = 804.0
+margin_bottom = 463.0
+rect_rotation = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "4|"
+
+[node name="LabelAC" type="Label" parent="."]
+margin_left = 588.0
+margin_top = 684.0
+margin_right = 659.0
+margin_bottom = 775.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "5|"
+
+[node name="LabelAC2" type="Label" parent="."]
+margin_left = 691.0
+margin_top = 757.0
+margin_right = 785.0
+margin_bottom = 848.0
+rect_rotation = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "5|"
+
+[node name="A" type="Position2D" parent="."]
+position = Vector2( 288, 519 )
+
+[node name="D" type="Position2D" parent="."]
+position = Vector2( 1646, 540 )
+
+[node name="B" type="Position2D" parent="."]
+position = Vector2( 1009, 166 )
+
+[node name="C" type="Position2D" parent="."]
+position = Vector2( 984, 920 )
+
+[node name="Ship" type="KinematicBody2D" parent="."]
+position = Vector2( 288, 519 )
+scale = Vector2( 1.66667, 1.66667 )
+
+[node name="Image" type="Sprite" parent="Ship"]
+position = Vector2( -1.80005, -9.59998 )
+scale = Vector2( 0.227309, 0.188076 )
+texture = ExtResource( 8 )
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ship"]
+anims/RESET = SubResource( 3 )
+anims/float = SubResource( 4 )
+anims/swim = SubResource( 5 )
+
+[node name="Confirm" type="Button" parent="."]
+margin_left = 18.0
+margin_top = 871.0
+margin_right = 436.0
+margin_bottom = 950.0
+custom_fonts/font = SubResource( 6 )
+toggle_mode = true
+
+[node name="Label" type="Label" parent="Confirm"]
+margin_left = 15.0
+margin_top = 16.0
+margin_right = 213.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( 217, 39 )
+custom_fonts/font = SubResource( 7 )
+text = "Bestätigen |"
+
+[node name="Label2" type="Label" parent="Confirm"]
+margin_left = 61.0
+margin_top = 48.0001
+margin_right = 259.0
+margin_bottom = 87.0001
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 171, 6.99994 )
+custom_fonts/font = SubResource( 7 )
+text = "Bestätigen |"
+
+[node name="Delete" type="Button" parent="."]
+margin_left = 17.0
+margin_top = 960.0
+margin_right = 623.0
+margin_bottom = 1039.0
+custom_fonts/font = SubResource( 6 )
+
+[node name="Label" type="Label" parent="Delete"]
+margin_left = 15.0
+margin_top = 18.0
+margin_right = 306.0
+margin_bottom = 57.0
+rect_pivot_offset = Vector2( 217, 39 )
+custom_fonts/font = SubResource( 7 )
+text = "Eingabe löschen |"
+
+[node name="Label2" type="Label" parent="Delete"]
+margin_left = 247.0
+margin_top = 49.0
+margin_right = 538.0
+margin_bottom = 88.0
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 171, 6.99994 )
+custom_fonts/font = SubResource( 7 )
+text = "Eingabe löschen |"
+
+[node name="BackgroundM" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[node name="TableButton" type="Button" parent="."]
+margin_left = 18.0
+margin_top = 785.0
+margin_right = 218.0
+margin_bottom = 860.0
+custom_fonts/font = SubResource( 9 )
+text = "Tabelle"
+
+[node name="DragAndDropDemo" parent="." instance=ExtResource( 9 )]
+visible = false
+margin_right = 1699.0
+margin_bottom = 995.0
+
+[connection signal="pressed" from="AC" to="." method="_on_AC_pressed"]
+[connection signal="pressed" from="BC" to="." method="_on_BC_pressed"]
+[connection signal="pressed" from="BD" to="." method="_on_BD_pressed"]
+[connection signal="pressed" from="CD" to="." method="_on_CD_pressed"]
+[connection signal="pressed" from="AB" to="." method="_on_AB_pressed"]
+[connection signal="pressed" from="Confirm" to="." method="_on_Confirm_pressed"]
+[connection signal="pressed" from="Delete" to="." method="_on_Delete_pressed"]
+[connection signal="pressed" from="TableButton" to="." method="_on_TableButton_pressed"]
