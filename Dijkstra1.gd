@@ -39,19 +39,19 @@ func _process(delta):
 	go_there(delta)
 	go_thereEnemy(delta)
 	set_animation()
+	set_animationEnemy()
 	
 func set_animation():
 	if moving:
 		$Ship/AnimationPlayer.play("swim")
-		#if $Ship.global_position == $B.global_position && $Ship.global_position.move_toward($A.global_position, 400):
-		if $Ship.global_position == $B.global_position && pathArray[0] == $A.global_position:
-		# if ship moves from B to A image should be flipped
-			$Ship/Image.flip_h = true
-		else:
-			$Ship/Image.flip_h = false
-			
 	else:
 		$Ship/AnimationPlayer.play("float")
+		
+func set_animationEnemy():
+	if moving:
+		$Ship2/AnimationPlayer.play("swim")
+	else:
+		$Ship2/AnimationPlayer.play("float")
 		
 func quickPath(Y,X,s):
 	print(pathArray)
