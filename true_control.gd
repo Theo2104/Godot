@@ -16,7 +16,7 @@ onready var target1 = get_node("VLayout/DragAndDropColumns/TargetContainer/Node2
 #$VLayout/DragAndDropColumns/TargetContainer/Node2D3.get_right_pos()
 
 func _on_Button_pressed():
-	if true_state and true_state2 and true_state3 and true_state4 and true_state5 and true_state6:
+	if true_state and true_state2 and true_state3 and true_state4 and true_state5 and true_state6 and true_state7 and true_state8 and true_state9 and true_state10 and true_state11 and true_state12:
 		return true
 	else: 
 		return false
@@ -47,7 +47,7 @@ var true_state4 = false
 var true_state5 = false
 var true_state6 = false
 
-var true_state7 = false
+var true_state7 = true
 var true_state8 = false
 var true_state9 = false
 var true_state10 = false
@@ -180,7 +180,7 @@ func _on_DropDown11_item_selected(index):
 
 
 func _on_DropDown12_item_selected(index):
-	if data10[index] == "D":
+	if data11[index] == "D":
 		true_state12 = true
 	else:
 		true_state12 = false
