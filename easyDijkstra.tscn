@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://weg_selected.png" type="Texture" id=2]
@@ -7,8 +7,9 @@
 [ext_resource path="res://weg.png" type="Texture" id=5]
 [ext_resource path="res://easyDijkstramap.jpeg" type="Texture" id=6]
 [ext_resource path="res://easyDijkstra.gd" type="Script" id=7]
-[ext_resource path="res://ship.png" type="Texture" id=8]
+[ext_resource path="res://ship2.png" type="Texture" id=8]
 [ext_resource path="res://drag_and_drop_demo_initial.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ship1.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 90
@@ -53,6 +54,55 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=5]
+resource_name = "swim"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 3, 4 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "float"
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=10]
 resource_name = "swim"
 length = 0.8
 loop = true
@@ -370,7 +420,7 @@ scale = Vector2( 1.66667, 1.66667 )
 [node name="Image" type="Sprite" parent="Ship"]
 position = Vector2( -1.80005, -9.59998 )
 scale = Vector2( 0.227309, 0.188076 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 hframes = 3
 vframes = 2
 
@@ -378,6 +428,22 @@ vframes = 2
 anims/RESET = SubResource( 3 )
 anims/float = SubResource( 4 )
 anims/swim = SubResource( 5 )
+
+[node name="Ship2" type="KinematicBody2D" parent="."]
+position = Vector2( 288, 519 )
+scale = Vector2( 2.77779, 2.77779 )
+
+[node name="Image" type="Sprite" parent="Ship2"]
+position = Vector2( -1.44, -7.91992 )
+scale = Vector2( 0.133253, 0.111694 )
+texture = ExtResource( 8 )
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ship2"]
+anims/RESET = SubResource( 8 )
+anims/float = SubResource( 9 )
+anims/swim = SubResource( 10 )
 
 [node name="Confirm" type="Button" parent="."]
 margin_left = 18.0
@@ -432,24 +498,10 @@ rect_pivot_offset = Vector2( 171, 6.99994 )
 custom_fonts/font = SubResource( 7 )
 text = "Eingabe löschen |"
 
-[node name="BackgroundM" type="AudioStreamPlayer" parent="."]
-autoplay = true
-
 [node name="DragAndDropDemo" parent="." instance=ExtResource( 9 )]
 visible = false
 margin_right = 1699.0
 margin_bottom = 995.0
-
-[node name="Ship2" type="KinematicBody2D" parent="."]
-position = Vector2( 288, 519 )
-scale = Vector2( 1.66667, 1.66667 )
-
-[node name="Image" type="Sprite" parent="Ship2"]
-position = Vector2( -2.40002, -9 )
-scale = Vector2( 0.227309, 0.188076 )
-texture = ExtResource( 8 )
-hframes = 3
-vframes = 2
 
 [connection signal="pressed" from="AC" to="." method="_on_AC_pressed"]
 [connection signal="pressed" from="BC" to="." method="_on_BC_pressed"]
