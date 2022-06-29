@@ -655,6 +655,17 @@ visible = false
 margin_right = 1699.0
 margin_bottom = 995.0
 
+[node name="Ship2" type="KinematicBody2D" parent="."]
+position = Vector2( 153, 581 )
+scale = Vector2( 1.66667, 1.66667 )
+
+[node name="Image" type="Sprite" parent="Ship2"]
+position = Vector2( -1.19998, -15 )
+scale = Vector2( 0.227309, 0.188076 )
+texture = ExtResource( 10 )
+hframes = 3
+vframes = 2
+
 [connection signal="pressed" from="AB" to="." method="_on_AB_pressed"]
 [connection signal="pressed" from="BE" to="." method="_on_BE_pressed"]
 [connection signal="pressed" from="AC" to="." method="_on_AC_pressed"]

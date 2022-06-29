@@ -4,6 +4,8 @@ export var moving = false
 
 onready var pathArray = [$Ship.global_position]
 onready var speed = [200]
+onready var pathArrayEnemy = [$Ship2.global_position, $B.global_position, $D.global_position]
+onready var speedEnemy = [200, (11-4)*11*8, (11-5)*11*8]
 var table_visibility = false
 
 #moves ship to destination position
@@ -19,9 +21,23 @@ func go_there(delta):
 		setPressedToFalse()
 		moving=false
 		
+#moves ship to destination position
+func go_thereEnemy(delta):
+	if moving:
+		$Ship2.global_position = $Ship2.global_position.move_toward(pathArrayEnemy[0], delta*speedEnemy[0])
+	if !pathArrayEnemy.empty():
+		if $Ship2.global_position == pathArrayEnemy[0]:
+			pathArrayEnemy.pop_front() #for removing this path from array after ship drove through
+			speedEnemy.pop_front()
+			
+	if pathArrayEnemy.empty():
+		setPressedToFalse()
+		moving=false
+		
 func _process(delta):
 	#print("Knoten: ", pathArray, ", speed: ", speed)
 	go_there(delta)
+	go_thereEnemy(delta)
 	set_animation()
 	
 func set_animation():

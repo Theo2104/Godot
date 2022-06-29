@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://weg_selected.png" type="Texture" id=2]
@@ -77,13 +77,6 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=7]
 size = 32
 font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFontData" id=8]
-font_path = "res://Xolonium-Regular.ttf"
-
-[sub_resource type="DynamicFont" id=9]
-size = 30
-font_data = SubResource( 8 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 7 )
@@ -442,18 +435,21 @@ text = "Eingabe löschen |"
 [node name="BackgroundM" type="AudioStreamPlayer" parent="."]
 autoplay = true
 
-[node name="TableButton" type="Button" parent="."]
-margin_left = 18.0
-margin_top = 785.0
-margin_right = 218.0
-margin_bottom = 860.0
-custom_fonts/font = SubResource( 9 )
-text = "Tabelle"
-
 [node name="DragAndDropDemo" parent="." instance=ExtResource( 9 )]
 visible = false
 margin_right = 1699.0
 margin_bottom = 995.0
+
+[node name="Ship2" type="KinematicBody2D" parent="."]
+position = Vector2( 288, 519 )
+scale = Vector2( 1.66667, 1.66667 )
+
+[node name="Image" type="Sprite" parent="Ship2"]
+position = Vector2( -2.40002, -9 )
+scale = Vector2( 0.227309, 0.188076 )
+texture = ExtResource( 8 )
+hframes = 3
+vframes = 2
 
 [connection signal="pressed" from="AC" to="." method="_on_AC_pressed"]
 [connection signal="pressed" from="BC" to="." method="_on_BC_pressed"]
@@ -462,4 +458,3 @@ margin_bottom = 995.0
 [connection signal="pressed" from="AB" to="." method="_on_AB_pressed"]
 [connection signal="pressed" from="Confirm" to="." method="_on_Confirm_pressed"]
 [connection signal="pressed" from="Delete" to="." method="_on_Delete_pressed"]
-[connection signal="pressed" from="TableButton" to="." method="_on_TableButton_pressed"]

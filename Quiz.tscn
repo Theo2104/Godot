@@ -184,10 +184,10 @@ script = SubResource( 4 )
 [node name="Farbaenderung" type="Timer" parent="Control/QuestionBox2"]
 
 [connection signal="tween_completed" from="Control/QuestionBox/Tween" to="Control/QuestionBox" method="_on_Tween_tween_completed"]
-[connection signal="pressed" from="Control/QuestionBox/FloydWarshall" to="Control/QuestionBox2" method="_on_FloydWarshall_pressed"]
 [connection signal="pressed" from="Control/QuestionBox/FloydWarshall" to="Control/QuestionBox" method="_on_FloydWarshall_pressed"]
-[connection signal="pressed" from="Control/QuestionBox/Dijkstra" to="Control/QuestionBox2" method="_on_Dijkstra_pressed"]
+[connection signal="pressed" from="Control/QuestionBox/FloydWarshall" to="Control/QuestionBox2" method="_on_FloydWarshall_pressed"]
 [connection signal="pressed" from="Control/QuestionBox/Dijkstra" to="Control/QuestionBox" method="_on_Dijkstra_pressed"]
+[connection signal="pressed" from="Control/QuestionBox/Dijkstra" to="Control/QuestionBox2" method="_on_Dijkstra_pressed"]
 [connection signal="timeout" from="Control/QuestionBox/Farbaenderung" to="Control/QuestionBox" method="_on_Farbaenderung_timeout"]
 [connection signal="tween_completed" from="Control/QuestionBox2/Tween" to="Control/QuestionBox2" method="_on_Tween_tween_completed"]
 [connection signal="timeout" from="Control/QuestionBox2/Farbaenderung" to="Control/QuestionBox2" method="_on_Farbaenderung_timeout"]
