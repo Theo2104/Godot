@@ -4,7 +4,7 @@ export var moving = false
 
 onready var pathArray = [$Ship.global_position]
 onready var pathArrayEnemy = [$Ship2.global_position, $B.global_position, $C.global_position, $F.global_position]
-onready var speedEnemy = [200, (11-4)*9*8, (11-3)*8*8, (11-7)*11*8]
+onready var speedEnemy = [200, calculateSpeed($A.global_position, $B.global_position, 4), calculateSpeed($B.global_position, $C.global_position, 3),calculateSpeed($C.global_position, $F.global_position, 7)]
 onready var speed = [200]
 var table_visibility = false
 
@@ -144,33 +144,36 @@ func checkDoublePath(path, Y, X, s):
 	else:
 		path.set_pressed(true)
 		
+func calculateSpeed(X,Y,weight):
+	return (X-Y).length() / weight;
+		
 #methods to change testination position (and move there - go_there() in process method), set moving to true, set move_speed
 func _on_AB_pressed():
-	checkDoublePath($AB, $A.global_position, $B.global_position, (11-4)*9*8)
+	checkDoublePath($AB, $A.global_position, $B.global_position, calculateSpeed($A.global_position, $B.global_position, 4))
 
 func _on_BE_pressed():
-	checkDoublePath($BE, $B.global_position, $E.global_position, (11-2)*10*8)
+	checkDoublePath($BE, $B.global_position, $E.global_position, calculateSpeed($B.global_position, $E.global_position, 2))
 
 func _on_AC_pressed():
-	checkDoublePath($AC, $A.global_position, $C.global_position, (11-8)*10*8)
+	checkDoublePath($AC, $A.global_position, $C.global_position, calculateSpeed($A.global_position, $C.global_position, 8))
 
 func _on_CE_pressed():
-	checkDoublePath($CE, $C.global_position, $E.global_position, (11-5)*8*8)
+	checkDoublePath($CE, $C.global_position, $E.global_position, calculateSpeed($C.global_position, $E.global_position, 5))
 
 func _on_BC_pressed():
-	checkDoublePath($BC, $B.global_position, $C.global_position, (11-3)*8*8)
+	checkDoublePath($BC, $B.global_position, $C.global_position, calculateSpeed($B.global_position, $C.global_position, 3))
 
 func _on_AD_pressed():
-	checkDoublePath($AD, $A.global_position, $D.global_position, (11-10)*11*8)
+	checkDoublePath($AD, $A.global_position, $D.global_position, calculateSpeed($A.global_position, $D.global_position, 10))
 
 func _on_CF_pressed():
-	checkDoublePath($CF, $C.global_position, $F.global_position, (11-7)*11*8)
+	checkDoublePath($CF, $C.global_position, $F.global_position, calculateSpeed($C.global_position, $F.global_position, 7))
 
 func _on_DF_pressed():
-	checkDoublePath($DF, $D.global_position, $F.global_position, (11-3)*12*8)
+	checkDoublePath($DF, $D.global_position, $F.global_position, calculateSpeed($D.global_position, $F.global_position, 3))
 
 func _on_EF_pressed():
-	checkDoublePath($EF, $E.global_position, $F.global_position, (11-9)*8*8)
+	checkDoublePath($EF, $E.global_position, $F.global_position, calculateSpeed($E.global_position, $F.global_position, 9))
 
 func _on_Button_pressed():
 	if !pathArray.empty():

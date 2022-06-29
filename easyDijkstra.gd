@@ -5,7 +5,7 @@ export var moving = false
 onready var pathArray = [$Ship.global_position]
 onready var speed = [200]
 onready var pathArrayEnemy = [$Ship2.global_position, $B.global_position, $D.global_position]
-onready var speedEnemy = [200, (11-4)*11*8, (11-5)*11*8]
+onready var speedEnemy = [200, calculateSpeed($A.global_position, $B.global_position, 4), calculateSpeed($B.global_position, $D.global_position, 5)]
 var table_visibility = false
 
 #moves ship to destination position
@@ -137,21 +137,24 @@ func _on_Delete_pressed():
 func _on_Confirm_pressed():
 	if !pathArray.empty():
 		moving = true
+		
+func calculateSpeed(X,Y,weight):
+	return (X-Y).length() / weight;
 
 func _on_AC_pressed():
-	checkDoublePath($AC, $A.global_position, $C.global_position, (11-5)*11*8)
+	checkDoublePath($AC, $A.global_position, $C.global_position, calculateSpeed($A.global_position, $C.global_position, 5))
 
 func _on_BC_pressed():
-	checkDoublePath($BC, $B.global_position, $C.global_position, (11-7)*11*8)
+	checkDoublePath($BC, $B.global_position, $C.global_position, calculateSpeed($B.global_position, $C.global_position, 7))
 
 func _on_BD_pressed():
-	checkDoublePath($BD, $B.global_position, $D.global_position, (11-5)*11*8)
+	checkDoublePath($BD, $B.global_position, $D.global_position, calculateSpeed($B.global_position, $D.global_position, 5))
 
 func _on_CD_pressed():
-	checkDoublePath($CD, $C.global_position, $D.global_position, (11-3)*11*8)
+	checkDoublePath($CD, $C.global_position, $D.global_position, calculateSpeed($C.global_position, $D.global_position, 3))
 
 func _on_AB_pressed():
-	checkDoublePath($AB, $A.global_position, $B.global_position, (11-4)*11*8)
+	checkDoublePath($AB, $A.global_position, $B.global_position, calculateSpeed($A.global_position, $B.global_position, 4))
 
 
 func _on_TableButton_pressed():
