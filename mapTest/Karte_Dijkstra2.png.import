@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Karte_Dijkstra2.png-62e9084656916d56dbd67c07cd450acc.stex"
+path="res://.import/Karte_Dijkstra2.png-ab040d47e1ba26318285c71b798eb11e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Karte_Dijkstra2.png"
-dest_files=[ "res://.import/Karte_Dijkstra2.png-62e9084656916d56dbd67c07cd450acc.stex" ]
+source_file="res://mapTest/Karte_Dijkstra2.png"
+dest_files=[ "res://.import/Karte_Dijkstra2.png-ab040d47e1ba26318285c71b798eb11e.stex" ]
 
 [params]
 
