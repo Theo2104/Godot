@@ -62,17 +62,17 @@ bg_color = Color( 0.25098, 0.188235, 0.188235, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_left = 1.0
-margin_top = 6.0
-margin_right = 1031.0
-margin_bottom = 598.0
+margin_top = -5.0
+margin_right = 1982.0
+margin_bottom = 1092.0
 texture = ExtResource( 1 )
 expand = true
 
 [node name="Control" type="Control" parent="."]
-margin_left = 375.0
-margin_top = 175.0
-margin_right = 445.0
-margin_bottom = 215.0
+margin_left = 803.0
+margin_top = 397.0
+margin_right = 873.0
+margin_bottom = 437.0
 
 [node name="QuestionBox" type="Control" parent="Control"]
 margin_top = 3.05176e-05
@@ -85,8 +85,11 @@ anchor_left = -5.35
 anchor_top = 2.825
 anchor_right = 11.65
 anchor_bottom = 5.4
-margin_left = 1.52588e-05
-margin_right = 0.000213623
+margin_left = -326.0
+margin_top = 47.0001
+margin_right = -326.0
+margin_bottom = 47.0
+rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 expand = true
 
@@ -95,30 +98,34 @@ anchor_left = -5.35
 anchor_top = 2.825
 anchor_right = 11.65
 anchor_bottom = 5.4
-margin_left = 30.0
-margin_top = 20.0
-margin_right = -30.0
-margin_bottom = -20.0
+margin_left = -274.0
+margin_top = 84.0
+margin_right = -334.0
+margin_bottom = 44.0
+rect_scale = Vector2( 2, 2 )
 custom_colors/default_color = Color( 0.333333, 0.227451, 0.14902, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 
 [node name="Tween" type="Tween" parent="Control/QuestionBox"]
 
 [node name="FloydWarshall" type="Button" parent="Control/QuestionBox"]
-margin_left = 300.0
-margin_top = -64.0
-margin_right = 600.0
-margin_bottom = 16.0
+margin_left = 363.0
+margin_top = -108.0
+margin_right = 663.0
+margin_bottom = -28.0001
 rect_rotation = 180.0
+rect_scale = Vector2( 1.5, 1.5 )
 theme = SubResource( 6 )
 custom_fonts/font = SubResource( 2 )
 custom_styles/normal = SubResource( 8 )
 text = "Floyd-Warshall"
 
 [node name="Dijkstra" type="Button" parent="Control/QuestionBox"]
-margin_top = 275.0
-margin_right = 300.0
-margin_bottom = 355.0
+margin_left = -70.0
+margin_top = 398.0
+margin_right = 230.0
+margin_bottom = 478.0
+rect_scale = Vector2( 1.5, 1.5 )
 custom_fonts/font = SubResource( 1 )
 custom_styles/normal = SubResource( 9 )
 text = "Dijkstra"
@@ -140,8 +147,11 @@ anchor_left = -5.35
 anchor_top = 2.825
 anchor_right = 11.65
 anchor_bottom = 5.4
-margin_left = 1.52588e-05
-margin_right = 0.000213623
+margin_left = -351.0
+margin_top = -47.0001
+margin_right = -351.0
+margin_bottom = -47.0001
+rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 expand = true
 
@@ -150,10 +160,11 @@ anchor_left = -5.35
 anchor_top = 2.825
 anchor_right = 11.65
 anchor_bottom = 5.4
-margin_left = 30.0
-margin_top = 20.0
-margin_right = -30.0
-margin_bottom = -20.0
+margin_left = -292.0
+margin_top = -7.49994
+margin_right = -352.0
+margin_bottom = -47.4999
+rect_scale = Vector2( 2, 2 )
 custom_colors/default_color = Color( 0.333333, 0.227451, 0.14902, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 

@@ -109,7 +109,7 @@ func _ready():
 func _process(delta):
 	$\"Next-indicator\".visible = finished
 	
-	if Input.is_action_just_pressed(\"ui_accept\"):
+	if Input.is_action_just_pressed(\"select\"):
 		load_dialog()
 
 func load_dialog():
@@ -211,8 +211,8 @@ margin_bottom = 599.0
 color = Color( 0.317647, 0.192157, 0.192157, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect"]
-margin_right = 1024.0
-margin_bottom = 597.0
+margin_right = 1931.0
+margin_bottom = 1089.0
 texture = ExtResource( 7 )
 expand = true
 
@@ -221,10 +221,11 @@ anchor_left = 13.012
 anchor_top = 14.996
 anchor_right = 13.012
 anchor_bottom = 14.996
-margin_left = -354.48
-margin_top = -226.84
-margin_right = 325.52
-margin_bottom = -20.84
+margin_left = -136.236
+margin_top = 95.3599
+margin_right = 543.764
+margin_bottom = 301.36
+rect_scale = Vector2( 1.7, 1.7 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
@@ -276,11 +277,12 @@ anchor_left = 13.012
 anchor_top = 14.996
 anchor_right = 13.012
 anchor_bottom = 14.996
-margin_left = 326.52
-margin_top = -367.84
-margin_right = 1006.52
-margin_bottom = -161.84
+margin_left = 1026.52
+margin_top = -194.84
+margin_right = 1706.52
+margin_bottom = 11.16
 rect_rotation = 179.96
+rect_scale = Vector2( 1.7, 1.7 )
 script = SubResource( 22 )
 __meta__ = {
 "_edit_group_": true

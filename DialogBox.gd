@@ -43,7 +43,7 @@ func _ready():
 func _process(delta):
 	$"Next-indicator".visible = finished
 	
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("select"):
 		load_dialog()
 
 func load_dialog():
