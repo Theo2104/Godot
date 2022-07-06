@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://button_bg_pressed.png" type="Texture" id=1]
+[ext_resource path="res://button_bg.png" type="Texture" id=2]
+[ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://matrose.png" type="Texture" id=4]
+[ext_resource path="res://background_menu.png" type="Texture" id=5]
+[ext_resource path="res://WinningScreen.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 71
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 71
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 71
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 948.698, 538.75 )
+scale = Vector2( 0.642172, 0.642172 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label_GW" type="Label" parent="."]
+margin_left = 653.0
+margin_top = 204.0
+margin_right = 1645.0
+margin_bottom = 471.0
+rect_rotation = 0.40719
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Glückwunsch !
+Wir haben uns den Schatz
+gesichert!"
+align = 1
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 263, 700 )
+scale = Vector2( 0.445022, 0.445022 )
+texture = ExtResource( 4 )
+
+[node name="WeiterButton" type="TextureButton" parent="."]
+margin_left = 742.0
+margin_top = 580.0
+margin_right = 1628.0
+margin_bottom = 771.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 1 )
+expand = true
+
+[node name="LabelWeiter" type="Label" parent="WeiterButton"]
+margin_left = 309.0
+margin_top = 45.0
+margin_right = 595.0
+margin_bottom = 136.0
+rect_rotation = 359.882
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Weiter"
+
+[node name="MenuButton" type="TextureButton" parent="."]
+margin_left = 745.0
+margin_top = 841.0
+margin_right = 1631.0
+margin_bottom = 1032.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 1 )
+expand = true
+
+[node name="LabelMenu" type="Label" parent="MenuButton"]
+margin_left = 135.0
+margin_top = 53.0
+margin_right = 808.0
+margin_bottom = 144.0
+rect_rotation = 359.882
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Zurück zum Menü"
+
+[connection signal="pressed" from="WeiterButton" to="." method="_on_WeiterButton_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_MenuButton_pressed"]
