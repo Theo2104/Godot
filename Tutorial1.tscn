@@ -1,0 +1,279 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://background-1.png" type="Texture" id=1]
+[ext_resource path="res://next-indicator.png" type="Texture" id=2]
+[ext_resource path="res://matrose.png" type="Texture" id=3]
+[ext_resource path="res://pirat.png" type="Texture" id=4]
+[ext_resource path="res://beach.jpg" type="Texture" id=5]
+[ext_resource path="res://DialogBox.gd" type="Script" id=6]
+[ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "IDLE"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 638, 160 ), Vector2( 638, 173.399 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 638, 173.399 ) ]
+}
+
+[sub_resource type="GDScript" id=23]
+script/source = "extends Sprite
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _process(delta):
+	if Input.is_action_just_pressed(\"mouse_left\"):
+		pirat_hide()
+
+func pirat_hide():
+	$Pirat.hide()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="GDScript" id=22]
+script/source = "extends Control
+
+
+var dialog = [
+	'Kapitän: Ahoi Matrose! Willkommen an Bord der Jolly Roger, dem Schiff der berüchtigtsten Piraten der sieben Welt Meere…  zumindest bald. Mit deiner Hilfe als Navigator sind wir endlich in der Lage der Schatzkarte nachzugehen, die wir vor vielen Jahren erbeutet haben.' ,
+	'Pirat: HHAHAHAHA, Ihr seid nicht die Einzigen die eine Kopie der Karte haben! Mit euren miserablen Fähigkeiten werdet ihr nie vor mir am Schatz sein.' , 
+	'Kapitän: Hmpf. Das wird sich noch zeigen, los Matrose zeig ihnen was du draufhast.',
+	
+
+]
+
+var dialog_index = 0
+var finished = false
+
+func _ready():
+	load_dialog()
+	$Pirat.hide()
+func _process(delta):
+	$\"Next-indicator\".visible = finished
+	
+	if Input.is_action_just_pressed(\"select\"):
+		load_dialog()
+
+func load_dialog():
+	if dialog_index < dialog.size():
+		finished = false
+		if dialog_index ==1:
+			$Matrose.hide()
+			$Pirat.show()
+			
+		else:
+			$Matrose.show()
+			$Pirat.hide()
+		$RichTextLabel.bbcode_text = dialog[dialog_index]
+		$RichTextLabel.percent_visible = 0
+		$Tween.interpolate_property(
+			$RichTextLabel, \"percent_visible\" , 0, 1, 1, 
+			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT 
+		)
+		$Tween.start()
+		
+	else:
+		queue_free()
+	dialog_index += 1
+	
+
+func _on_Tween_tween_completed(object, key):
+	finished = true
+
+"
+
+[sub_resource type="Animation" id=18]
+resource_name = "INDIC"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 649.876, 185 ), Vector2( 649.876, 178.454 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 649.876, 178.454 ) ]
+}
+
+[node name="Control" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1027.0
+margin_bottom = 599.0
+color = Color( 0.317647, 0.192157, 0.192157, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="DialogBox" type="Control" parent="."]
+anchor_left = 23.775
+anchor_top = 13.566
+anchor_right = 23.775
+anchor_bottom = 13.566
+margin_left = -673.0
+margin_top = 199.36
+margin_right = 719.0
+margin_bottom = 460.36
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="DialogBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 15.0
+margin_right = -15.0
+margin_bottom = -15.0
+custom_colors/default_color = Color( 0.333333, 0.227451, 0.14902, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+
+[node name="Tween" type="Tween" parent="DialogBox"]
+
+[node name="Matrose" type="Sprite" parent="DialogBox"]
+position = Vector2( -150, 80 )
+scale = Vector2( 0.270106, 0.212264 )
+texture = ExtResource( 3 )
+
+[node name="Next-indicator" type="Sprite" parent="DialogBox"]
+position = Vector2( 638, 173.399 )
+scale = Vector2( 0.541, 0.511 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogBox/Next-indicator"]
+autoplay = "IDLE"
+anims/IDLE = SubResource( 10 )
+anims/RESET = SubResource( 11 )
+
+[node name="Pirat" type="Sprite" parent="DialogBox"]
+position = Vector2( 1500, 45.094 )
+scale = Vector2( 1.06299, 0.946051 )
+texture = ExtResource( 4 )
+script = SubResource( 23 )
+
+[node name="DialogBox2" type="Control" parent="."]
+anchor_left = 13.012
+anchor_top = 14.996
+anchor_right = 13.012
+anchor_bottom = 14.996
+margin_left = 1146.52
+margin_top = -266.84
+margin_right = 2538.52
+margin_bottom = -5.84003
+rect_rotation = 179.96
+script = SubResource( 22 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="DialogBox2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogBox2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 15.0
+margin_right = -15.0
+margin_bottom = -15.0
+custom_colors/default_color = Color( 0.333333, 0.227451, 0.14902, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+
+[node name="Tween" type="Tween" parent="DialogBox2"]
+
+[node name="Next-indicator" type="Sprite" parent="DialogBox2"]
+position = Vector2( 649.876, 178.454 )
+rotation = -0.000964641
+scale = Vector2( 0.541, 0.511 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogBox2/Next-indicator"]
+autoplay = "INDIC"
+anims/INDIC = SubResource( 18 )
+anims/RESET = SubResource( 19 )
+
+[node name="Matrose" type="Sprite" parent="DialogBox2"]
+position = Vector2( -150, 80 )
+scale = Vector2( 0.27, 0.212 )
+texture = ExtResource( 3 )
+
+[node name="Pirat" type="Sprite" parent="DialogBox2"]
+position = Vector2( 1500, 54.56 )
+scale = Vector2( 1.063, 0.946 )
+texture = ExtResource( 4 )
+script = SubResource( 23 )
+
+[connection signal="tween_completed" from="DialogBox/Tween" to="DialogBox" method="_on_Tween_tween_completed"]
+[connection signal="tween_completed" from="DialogBox2/Tween" to="DialogBox2" method="_on_Tween_tween_completed"]
