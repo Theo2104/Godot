@@ -446,10 +446,10 @@ anims/float = SubResource( 9 )
 anims/swim = SubResource( 10 )
 
 [node name="Confirm" type="Button" parent="."]
-margin_left = 18.0
-margin_top = 871.0
-margin_right = 436.0
-margin_bottom = 950.0
+margin_left = 1488.0
+margin_top = 17.0
+margin_right = 1906.0
+margin_bottom = 96.0
 custom_fonts/font = SubResource( 6 )
 toggle_mode = true
 

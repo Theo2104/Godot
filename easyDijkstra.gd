@@ -7,10 +7,12 @@ onready var speed = [200]
 onready var pathArrayEnemy = [$Ship2.global_position, $B.global_position, $D.global_position]
 onready var speedEnemy = [200, calculateSpeed($A.global_position, $B.global_position, 4), calculateSpeed($B.global_position, $D.global_position, 5)]
 var table_visibility = false
+var enabledWinningScreen = false
 
 #moves ship to destination position
 func go_there(delta):
 	if moving:
+		enabledWinningScreen = true
 		$Ship.global_position = $Ship.global_position.move_toward(pathArray[0], delta*speed[0])
 	if !pathArray.empty():
 		if $Ship.global_position == pathArray[0]:
@@ -20,10 +22,13 @@ func go_there(delta):
 	if pathArray.empty():
 		setPressedToFalse()
 		moving=false
+		if enabledWinningScreen:
+			get_tree().change_scene("res://WinningScreen.tscn")
 		
 #moves ship to destination position
 func go_thereEnemy(delta):
 	if moving:
+		enabledWinningScreen = true
 		$Ship2.global_position = $Ship2.global_position.move_toward(pathArrayEnemy[0], delta*speedEnemy[0])
 	if !pathArrayEnemy.empty():
 		if $Ship2.global_position == pathArrayEnemy[0]:
@@ -33,6 +38,8 @@ func go_thereEnemy(delta):
 	if pathArrayEnemy.empty():
 		setPressedToFalse()
 		moving=false
+		if enabledWinningScreen:
+			get_tree().change_scene("res://easyDijkstra.tscn")
 		
 func _process(delta):
 	#print("Knoten: ", pathArray, ", speed: ", speed)
