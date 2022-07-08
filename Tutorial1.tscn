@@ -12,11 +12,11 @@
 size = 30
 font_data = ExtResource( 7 )
 
-[sub_resource type="Animation" id=10]
-resource_name = "IDLE"
+[sub_resource type="Animation" id=24]
+resource_name = "INDIC"
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("../../DialogBox/Next-indicator:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -25,10 +25,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 638, 160 ), Vector2( 638, 173.399 ) ]
+"values": [ Vector2( 1350, 220 ), Vector2( 1350, 210 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=25]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -40,7 +40,19 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 638, 173.399 ) ]
+"values": [ Vector2( 649.876, 178.454 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../DialogBox/Next-indicator:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1350, 210 ) ]
 }
 
 [sub_resource type="GDScript" id=23]
@@ -130,7 +142,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 649.876, 185 ), Vector2( 649.876, 178.454 ) ]
+"values": [ Vector2( 1350, 220 ), Vector2( 1350, 210 ) ]
 }
 
 [sub_resource type="Animation" id=19]
@@ -203,14 +215,15 @@ scale = Vector2( 0.270106, 0.212264 )
 texture = ExtResource( 3 )
 
 [node name="Next-indicator" type="Sprite" parent="DialogBox"]
-position = Vector2( 638, 173.399 )
+position = Vector2( 1350, 210 )
 scale = Vector2( 0.541, 0.511 )
 texture = ExtResource( 2 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogBox/Next-indicator"]
-autoplay = "IDLE"
-anims/IDLE = SubResource( 10 )
-anims/RESET = SubResource( 11 )
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="DialogBox/Next-indicator"]
+root_node = NodePath("../../../DialogBox2/Next-indicator")
+autoplay = "INDIC"
+anims/INDIC = SubResource( 24 )
+anims/RESET = SubResource( 25 )
 
 [node name="Pirat" type="Sprite" parent="DialogBox"]
 position = Vector2( 1500, 45.094 )
@@ -255,7 +268,6 @@ bbcode_enabled = true
 
 [node name="Next-indicator" type="Sprite" parent="DialogBox2"]
 position = Vector2( 649.876, 178.454 )
-rotation = -0.000964641
 scale = Vector2( 0.541, 0.511 )
 texture = ExtResource( 2 )
 

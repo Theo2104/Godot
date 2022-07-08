@@ -25,7 +25,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 638, 160 ), Vector2( 638, 173.399 ) ]
+"values": [ Vector2( 1350, 220 ), Vector2( 1350, 210 ) ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -145,7 +145,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 649.876, 185 ), Vector2( 649.876, 178.454 ) ]
+"values": [ Vector2( 1350, 220 ), Vector2( 1350, 210 ) ]
 }
 
 [sub_resource type="Animation" id=19]
