@@ -243,7 +243,6 @@ margin_top = -266.84
 margin_right = 2538.52
 margin_bottom = -5.84003
 rect_rotation = 179.96
-rect_scale = Vector2( 1.7, 1.7 )
 script = SubResource( 22 )
 __meta__ = {
 "_edit_group_": true
@@ -271,7 +270,6 @@ bbcode_enabled = true
 
 [node name="Next-indicator" type="Sprite" parent="DialogBox2"]
 position = Vector2( 649.876, 178.454 )
-rotation = -0.000964641
 scale = Vector2( 0.541, 0.511 )
 texture = ExtResource( 4 )
 
