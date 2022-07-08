@@ -14,7 +14,7 @@ func _ready():
 
 
 func _on_TutorialButton_pressed():
-	get_tree().change_scene("res://Main.tscn")
+	get_tree().change_scene("res://Tutorial1.tscn")
 
 
 func _on_Level1Button_pressed():

@@ -17,14 +17,14 @@ bg_color = Color( 0.572549, 0.0588235, 0.0588235, 1 )
 /styles/stylebox = SubResource( 5 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 26
+size = 50
 font_data = ExtResource( 4 )
 
 [sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.25098, 0.188235, 0.188235, 1 )
 
 [sub_resource type="DynamicFont" id=1]
-size = 26
+size = 50
 font_data = ExtResource( 4 )
 
 [sub_resource type="StyleBoxFlat" id=9]
@@ -61,71 +61,67 @@ bg_color = Color( 0.25098, 0.188235, 0.188235, 1 )
 [node name="Node2D" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = 1.0
-margin_top = -5.0
-margin_right = 1982.0
-margin_bottom = 1092.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 texture = ExtResource( 1 )
 expand = true
 
 [node name="Control" type="Control" parent="."]
-margin_left = 803.0
-margin_top = 397.0
-margin_right = 873.0
-margin_bottom = 437.0
+margin_left = 375.0
+margin_top = 175.0
+margin_right = 445.0
+margin_bottom = 215.0
 
 [node name="QuestionBox" type="Control" parent="Control"]
-margin_top = 3.05176e-05
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_left = 6.914
+anchor_top = 5.475
+anchor_right = 6.914
+anchor_bottom = 5.475
+margin_left = -19.98
+margin_top = -20.0
+margin_right = 67.02
+margin_bottom = 50.0
 script = ExtResource( 2 )
 
 [node name="TextureRect" type="TextureRect" parent="Control/QuestionBox"]
-anchor_left = -5.35
+anchor_left = -7.241
 anchor_top = 2.825
-anchor_right = 11.65
+anchor_right = 9.644
 anchor_bottom = 5.4
-margin_left = -326.0
-margin_top = 47.0001
-margin_right = -326.0
-margin_bottom = 47.0
-rect_scale = Vector2( 2, 2 )
+margin_left = -5.03296
+margin_right = 4.97211
 texture = ExtResource( 3 )
 expand = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/QuestionBox"]
-anchor_left = -5.35
-anchor_top = 2.825
-anchor_right = 11.65
+anchor_left = -6.897
+anchor_top = 3.111
+anchor_right = 9.195
 anchor_bottom = 5.4
-margin_left = -274.0
-margin_top = 84.0
-margin_right = -334.0
-margin_bottom = 44.0
-rect_scale = Vector2( 2, 2 )
+margin_left = 0.0390015
+margin_top = -0.0200043
+margin_right = 0.0349731
+margin_bottom = -10.25
 custom_colors/default_color = Color( 0.333333, 0.227451, 0.14902, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 
 [node name="Tween" type="Tween" parent="Control/QuestionBox"]
 
 [node name="FloydWarshall" type="Button" parent="Control/QuestionBox"]
-margin_left = 363.0
-margin_top = -108.0
-margin_right = 663.0
-margin_bottom = -28.0001
+margin_left = 380.0
+margin_top = -140.0
+margin_right = 920.0
 rect_rotation = 180.0
-rect_scale = Vector2( 1.5, 1.5 )
 theme = SubResource( 6 )
 custom_fonts/font = SubResource( 2 )
 custom_styles/normal = SubResource( 8 )
 text = "Floyd-Warshall"
 
 [node name="Dijkstra" type="Button" parent="Control/QuestionBox"]
-margin_left = -70.0
-margin_top = 398.0
-margin_right = 230.0
-margin_bottom = 478.0
-rect_scale = Vector2( 1.5, 1.5 )
+margin_left = -150.0
+margin_top = 400.0
+margin_right = 390.0
+margin_bottom = 550.0
 custom_fonts/font = SubResource( 1 )
 custom_styles/normal = SubResource( 9 )
 text = "Dijkstra"
@@ -135,10 +131,10 @@ script = SubResource( 4 )
 wait_time = 3.0
 
 [node name="QuestionBox2" type="Control" parent="Control"]
-margin_left = 253.0
-margin_top = 200.0
-margin_right = 293.0
-margin_bottom = 240.0
+margin_left = 842.0
+margin_top = 490.0
+margin_right = 929.0
+margin_bottom = 566.0
 rect_rotation = 180.0
 script = ExtResource( 2 )
 
@@ -147,11 +143,8 @@ anchor_left = -5.35
 anchor_top = 2.825
 anchor_right = 11.65
 anchor_bottom = 5.4
-margin_left = -351.0
-margin_top = -47.0001
-margin_right = -351.0
-margin_bottom = -47.0001
-rect_scale = Vector2( 2, 2 )
+margin_left = 1.52588e-05
+margin_right = 0.000213623
 texture = ExtResource( 3 )
 expand = true
 
@@ -160,11 +153,10 @@ anchor_left = -5.35
 anchor_top = 2.825
 anchor_right = 11.65
 anchor_bottom = 5.4
-margin_left = -292.0
-margin_top = -7.49994
-margin_right = -352.0
-margin_bottom = -47.4999
-rect_scale = Vector2( 2, 2 )
+margin_left = 30.0
+margin_top = 20.0
+margin_right = -48.9999
+margin_bottom = -25.7
 custom_colors/default_color = Color( 0.333333, 0.227451, 0.14902, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 
