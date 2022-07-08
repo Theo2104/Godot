@@ -10,7 +10,7 @@ func _on_MenuButton_pressed():
 
 func _on_WeiterButton_pressed():
 	if (scene == 0):
-		get_tree().change_scene("res://Dijkstra1.tscn");
+		get_tree().change_scene("res://Tutorial2.tscn");
 		scene = 1;
 	else:
 		get_tree().change_scene("res://Menu.tscn");

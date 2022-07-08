@@ -15,11 +15,13 @@ var finished = false
 func _ready():
 	load_dialog()
 	$Pirat.hide()
+	
 func _process(delta):
 	$"Next-indicator".visible = finished
 	
 	if Input.is_action_just_pressed("select"):
 		load_dialog()
+	
 
 func load_dialog():
 	if dialog_index < dialog.size():
@@ -33,10 +35,6 @@ func load_dialog():
 			$Matrose.show()
 			$Pirat.hide()
 		
-			
-		
-		
-		
 		$RichTextLabel.bbcode_text = dialog[dialog_index]
 		$RichTextLabel.percent_visible = 0
 		$Tween.interpolate_property(
@@ -47,8 +45,10 @@ func load_dialog():
 		
 	else:
 		queue_free()
+		get_tree().change_scene("res://easyDijkstra.tscn")
 	dialog_index += 1
 	
 
 func _on_Tween_tween_completed(object, key):
 	finished = true
+	

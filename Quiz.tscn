@@ -61,7 +61,8 @@ bg_color = Color( 0.25098, 0.188235, 0.188235, 1 )
 [node name="Node2D" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 1920.0
+margin_top = -23.0
+margin_right = 1945.0
 margin_bottom = 1080.0
 texture = ExtResource( 1 )
 expand = true

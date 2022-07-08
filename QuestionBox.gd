@@ -41,6 +41,7 @@ func load_question():
 		
 	else:
 		queue_free()
+		get_tree().change_scene("res://Dijkstra1.tscn")
 	question_index += 2
 	
 

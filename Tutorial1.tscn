@@ -121,6 +121,7 @@ func load_dialog():
 		
 	else:
 		queue_free()
+		get_tree().change_scene(\"res://easyDijkstra.tscn\")
 	dialog_index += 1
 	
 
@@ -170,7 +171,8 @@ margin_bottom = 599.0
 color = Color( 0.317647, 0.192157, 0.192157, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect"]
-margin_right = 1920.0
+margin_top = -31.0
+margin_right = 1937.0
 margin_bottom = 1080.0
 texture = ExtResource( 5 )
 expand = true

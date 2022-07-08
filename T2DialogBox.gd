@@ -56,6 +56,7 @@ func load_dialog():
 		
 	else:
 		queue_free()
+		get_tree().change_scene("res://Dijkstra.tscn")
 	dialog_index += 1
 	
 
