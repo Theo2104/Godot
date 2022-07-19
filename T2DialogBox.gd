@@ -63,3 +63,11 @@ func load_dialog():
 func _on_Tween_tween_completed(object, key):
 	finished = true
 
+
+
+func _on_Delete_pressed():
+	get_tree().change_scene("res://Quiz.tscn")
+
+
+func _on_Delete2_pressed():
+	get_tree().change_scene("res://Quiz.tscn")
